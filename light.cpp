@@ -1,8 +1,8 @@
-#include <GL\glut.h>
+#include <GL\glut.h> 
 
-//脫毛鹿芒脮脮脧脿鹿脴碌脛脡猫脰脙 GL_POSITION
-// 1.路陆脧貌脨脭鹿芒脭麓拢潞鹿芒脭麓脦禄脫脷脦脼脧脼脭露麓娄拢卢碌卤鹿芒脧脽碌陆麓茂脦茂脤氓卤铆脙忙脢卤拢卢驴脡脪脭脠脧脦陋脣霉脫脨碌脛鹿芒脧脽露录脢脟脝陆脨脨碌脛  脠莽拢潞脤芦脩么
-// 2.脦禄脰脙脨脭鹿芒脭麓拢潞脭脷鲁隆戮掳脰脨碌脛脳录脠路脦禄脰脙戮枚露篓脕脣脣没露脭鲁隆戮掳脣霉虏煤脡煤碌脛脨搂鹿没隆拢戮脽脤氓脣碌脢脟戮枚露篓脕脣鹿芒脧脽碌脛路陆脧貌隆拢 脠莽拢潞脤篓碌脝
+//与光照相关的设置 GL_POSITION
+// 1.方向性光源：光源位于无限远处，当光线到达物体表面时，可以认为所有的光线都是平行的  如：太阳
+// 2.位置性光源：在场景中的准确位置决定了他对场景所产生的效果。具体说是决定了光线的方向。 如：台灯
 
 void init()
 {
@@ -10,12 +10,12 @@ void init()
 	GLfloat mat_shininess[] = {50.0};
 	
 
-	//拢篓1拢漏GL_POSITION(x,y,z,w) 
-	//路陆脧貌脨脭鹿芒脭麓拢卢w脦陋0拢卢 脛卢脠脧脟茅驴枚脧脗GL_POSITION脦陋(0,0,1,0)露篓脪氓脰赂脧貌z脰谩赂潞路陆脧貌碌脛路陆脧貌脨脭鹿芒脭麓隆拢 	
+	//（1）GL_POSITION(x,y,z,w) 
+	//方向性光源，w为0， 默认情况下GL_POSITION为(0,0,1,0)定义指向z轴负方向的方向性光源。 	
 	GLfloat light_position[] = {1.0,1.0,1.0,1.0};
 	GLfloat light_ambient[] = { 0.0, 0.0, 0.0, 1.0};
-	GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0};//鹿芒碌脛脡垄脡盲脟驴露脠拢篓light0碌脛脛卢脠脧脰碌脦陋掳脳脡芦拢卢脝盲脣没脦陋潞脷脡芦拢漏 脳卯陆脫陆眉脦脪脙脟脧毛脧贸碌脛鹿芒 
-	GLfloat light_specular[] = { 1.0, 1.0, 1.0, 1.0};//鹿芒碌脛戮碌脙忙脟驴露脠拢篓light0碌脛脛卢脠脧脰碌脦陋掳脳脡芦拢卢脝盲脣没脦陋潞脷脡芦拢漏 脧毛麓麓陆篓卤脝脮忙碌脛脨搂鹿没拢卢脥篓鲁拢陆芦GL_SPECULAR潞脥GL_DIFFUSE虏脦脢媒脰碌脡猫脰脙脧脿脥卢
+	GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0};//光的散射强度（light0的默认值为白色，其他为黑色） 最接近我们想象的光 
+	GLfloat light_specular[] = { 1.0, 1.0, 1.0, 1.0};//光的镜面强度（light0的默认值为白色，其他为黑色） 想创建逼真的效果，通常将GL_SPECULAR和GL_DIFFUSE参数值设置相同
 
 	GLfloat white_light[] = {1.0,1.0,1.0,1.0};
 	GLfloat lmodel_ambient[] = {0.1,0.1,0.1,1.0};
@@ -26,34 +26,34 @@ void init()
 	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
 
-	glLightfv(GL_LIGHT0,GL_POSITION,light_position);//鹿芒脭麓脦禄脰脙脳酶卤锚(x,y,z,w)
-	glLightfv(GL_LIGHT0,GL_AMBIENT,light_ambient);//禄路戮鲁鹿芒
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);//脡垄脡盲鹿芒 
-	glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);//戮碌脙忙路麓脡盲鹿芒 
+	glLightfv(GL_LIGHT0,GL_POSITION,light_position);//光源位置坐标(x,y,z,w)
+	glLightfv(GL_LIGHT0,GL_AMBIENT,light_ambient);//环境光
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);//散射光 
+	glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);//镜面反射光 
 
-	//拢篓2拢漏GL_POSITION(x,y,z,w) 
-	//脦禄脰脙脨脭鹿芒脭麓拢卢w脦陋路脟0脰碌拢卢脛卢脠脧脟茅驴枚脧脗脦禄脰脙脨脭鹿芒脭麓脧貌脣霉脫脨路陆脧貌路垄脡盲鹿芒脧脽拢卢碌芦驴脡脪脭脥篓鹿媒掳脩鹿芒脭麓露篓脪氓脦陋戮脹鹿芒碌脝拢卢掳脩脮脮脙梅路露脦搂脧脼脰脝脭脷脳碌脤氓脌茂隆拢
+	//（2）GL_POSITION(x,y,z,w) 
+	//位置性光源，w为非0值，默认情况下位置性光源向所有方向发射光线，但可以通过把光源定义为聚光灯，把照明范围限制在椎体里。
 
 	GLfloat light1_ambient[] = { 0.2, 0.2, 0.2, 1.0};
 	GLfloat light1_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat light1_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat light1_position[] = {-0.2,2.0,1.0,1.0};
-	GLfloat spot_direction[] = {-1.0,-1.0,0.0};//戮脹鹿芒碌脝脦禄脰脙
+	GLfloat spot_direction[] = {-1.0,-1.0,0.0};//聚光灯位置
 
 	glLightfv(GL_LIGHT1,GL_AMBIENT,light1_ambient);
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, light1_diffuse);
 	glLightfv(GL_LIGHT1,GL_SPECULAR,light1_specular);
 	glLightfv(GL_LIGHT1, GL_POSITION, light1_position);
 	 
-	//禄路戮鲁鹿芒隆垄脡垄脡盲鹿芒潞脥戮碌脙忙鹿芒碌脛脟驴露脠陆酶脨脨脣楼录玫拢卢脰禄脫脨路垄脡盲鹿芒潞脥脠芦戮脰禄路戮鲁鹿芒碌脛脟驴露脠脙禄脫脨脣楼录玫
-	//录脝脣茫脣楼录玫脪貌脳脫
+	//环境光、散射光和镜面光的强度进行衰减，只有发射光和全局环境光的强度没有衰减
+	//计算衰减因子
 	glLightf(GL_LIGHT1,GL_CONSTANT_ATTENUATION,1.5);
 	glLightf(GL_LIGHT1, GL_LINEAR_ATTENUATION, 0.5);
 	glLightf(GL_LIGHT1, GL_QUADRATIC_ATTENUATION, 0.2);
 
-	glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 45.0);//陆芦鹿芒脳露脟脨陆脟虏脦脢媒脡猫脰脙脦陋45露脠 
-	glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, spot_direction);//脰赂露篓戮脹鹿芒碌脝碌脛路陆脧貌拢卢脠路露篓鹿芒脳露碌脛脰谩 脛卢脠脧脦陋拢篓0拢卢0拢卢-1.0拢漏鹿芒脧脽脰赂脧貌z脰谩碌脛赂潞路陆脧貌
-	glLightf(GL_LIGHT1, GL_SPOT_EXPONENT, 2.0);//脛卢脠脧脦陋0拢卢驴脴脰脝鹿芒碌脛录炉脰脨露脠拢卢鹿芒碌脛脟驴露脠脭脷脰脨脨脛脳卯赂脽拢卢卤脽脭碌脭陆脠玫拢卢脣楼录玫路霉露脠脢脟鹿芒脧脽路陆脧貌脫毛鹿芒脧脽潞脥脣眉脣霉脮脮脡盲露楼碌茫碌脛路陆脧貌脰庐录盲录脨陆脟碌脛脫脿脧脪脰碌碌脛戮脹鹿芒脰赂脢媒麓脦路陆隆拢
+	glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 45.0);//将光锥切角参数设置为45度 
+	glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, spot_direction);//指定聚光灯的方向，确定光锥的轴 默认为（0，0，-1.0）光线指向z轴的负方向
+	glLightf(GL_LIGHT1, GL_SPOT_EXPONENT, 2.0);//默认为0，控制光的集中度，光的强度在中心最高，边缘越弱，衰减幅度是光线方向与光线和它所照射顶点的方向之间夹角的余弦值的聚光指数次方。
 
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
@@ -61,15 +61,15 @@ void init()
 	glEnable(GL_DEPTH_TEST);
 }
 
-//禄忙脰脝脦茂脤氓
+//绘制物体
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	
- 	glutSolidTeapot(0.9);//露篓脪氓虏猫潞酶 
+ 	glutSolidTeapot(0.9);//定义茶壶 
 	glFlush();
 }
 
-//麓掳驴脷卤盲禄炉
+//窗口变化
 void reshape(int w, int h)
 {
 	glViewport(0,0,w,h);
