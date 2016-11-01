@@ -1,5 +1,5 @@
 #include <GL\glut.h> 
-
+ 
 //与光照相关的设置 GL_POSITION
 // 1.方向性光源：光源位于无限远处，当光线到达物体表面时，可以认为所有的光线都是平行的  如：太阳
 // 2.位置性光源：在场景中的准确位置决定了他对场景所产生的效果。具体说是决定了光线的方向。 如：台灯
@@ -82,8 +82,6 @@ void reshape(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 }
-
-
 
 int main(int argc,char *argv[])
 {
