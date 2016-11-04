@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);//设置单缓冲，RGB颜色索引
 	glutInitWindowSize(1000,500);//初始化窗口大小
 	glutInitWindowPosition(500,500);//初始化窗口位置
-	glutCreateWindow(argv[0]);//创建显示窗口
+	glutCreateWindow(argv[0]);//窗口名称
 	glutDisplayFunc(display);//调用绘图函数
 	glutMainLoop();//窗口被创建时，并不立即显示在屏幕上，而是进行消息循环将窗口显示在屏幕上，当窗口关闭时函数返回。
 	return 0;
