@@ -84,9 +84,9 @@ int main(int argc, char *argv[])
 {
 	glutInit(&argc,argv);
 	glutInitDisplayMode(GLUT_RGB|GLUT_DOUBLE|GLUT_DEPTH);
+	glutInitWindowSize(1000,500);
+	glutInitWindowPosition(100,100);
 	glutCreateWindow(argv[0]);
-	glutInitWindowSize(500,500);
-	glutInitWindowPosition(500,500);
 	init();//和glutDisplayFunc可以调换顺序，并且还可以省略，省略后采用默认设置，背景为黑色
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
