@@ -43,6 +43,36 @@ GLUT_DOUBLE:双缓冲区窗口,这是产生流畅动画必须选的。Glut使用
 <hr>
 
 
+1、基本图形绘制
+
+![](http://i.imgur.com/3tQcfQ3.jpg)
+
+
+2、视口和几何图形绘制
+
+![](http://i.imgur.com/DWAKi8P.jpg)
+
+3、材质和光照
+
+![](http://i.imgur.com/BxAOHvY.jpg)
+
+4、旋转光源位置观察光照效果
+
+![](http://i.imgur.com/tcrpXBJ.gif)
+
+5、Alpha遮挡关系
+
+![](http://i.imgur.com/vQ3LUdO.gif)
+
+6、透明度设置
+
+![](http://i.imgur.com/vuvN4pG.gif)
+
+7、球面三角绘制
+
+![](http://i.imgur.com/zKqPJp7.gif)
+
+
 
 ## 参考资料 ##
 
